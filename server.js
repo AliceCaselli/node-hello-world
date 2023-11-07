@@ -1,3 +1,4 @@
+
 let frasiMotivazionali = [
     "Se vuoi qualcosa che non hai mai avuto, devi fare qualcosa che non hai mai fatto.",
     "La vita è per il 10% cosa ti accade e per il 90% come reagisci.",
@@ -24,16 +25,15 @@ function htmlResponse(res, content) {
 }
 
 // console.log(frasiMotivazionali.length);
-
-function random() {
-    number = Math.floor(Math.random() * frasiMotivazionali.length);
+function random(array) {
+    number = Math.floor(Math.random() * array.length);
     return number;
 }
 
 
 const server = http.createServer(function (req, res) {
 
-    const index = random();
+    const index = random(frasiMotivazionali);
     htmlResponse(res, "<h1>" + frasiMotivazionali[index] + "</h1>");
 
 });
